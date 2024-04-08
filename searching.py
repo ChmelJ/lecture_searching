@@ -23,24 +23,31 @@ def read_data(file_name, field):
 
 def linear_search(sequence, searched_number):
     list_of_positions = []
+    number_of_operations = 0
     for position, number in enumerate(sequence):
+        number_of_operations = number_of_operations + 1
         if number == searched_number:
             list_of_positions.append(position)
+    print(number_of_operations)
     return {'positions': list_of_positions, 'count': len(list_of_positions)}
 
 
 def pattern_search(sequence, searched_pattern):
     pattern_length = len(searched_pattern)
     list_of_positions = []
+    number_of_operations = 0
     for position in range(len(sequence)-pattern_length):
         is_same = True
         for subind in range(len(searched_pattern)):
+            number_of_operations = number_of_operations + 1
             if sequence[position+subind] == searched_pattern[subind]:
                 is_same = is_same and True
             else:
-                is_same = is_same and False
+                # is_same = is_same and False
+                break
         if is_same:
             list_of_positions.append(position+pattern_length // 2)
+    print(number_of_operations)
     return {'positions': list_of_positions, 'count': len(list_of_positions)}
 
 
