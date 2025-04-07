@@ -22,11 +22,23 @@ def read_data(file_name, field):
         return None
 
 
+def linear_search(list_of_numbers, number):
+    list_of_idxs = []
+    for idx, element in enumerate(list_of_numbers):
+        if element == number:
+            list_of_idxs.append(idx)
+        else:
+            pass
+    dictionary_of_found_numbers = {"positions": list_of_idxs, "count": len(list_of_idxs)}
+    return dictionary_of_found_numbers
+
+
 def main():
-    pass
+    sequential_data = read_data("sequential.json", "unordered_numbers")
+    print(sequential_data)
+    found_numbers_linear = linear_search(sequential_data, 0)
+    print(found_numbers_linear)
 
 
 if __name__ == '__main__':
     main()
-    sequential_data = read_data("sequential.json", "unordered_numbers")
-    print(sequential_data)
